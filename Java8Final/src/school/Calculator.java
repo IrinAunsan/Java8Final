@@ -27,9 +27,16 @@ public class Calculator {
           Set<String> keys = student.gpa.subjectGpa.keySet();
           
           for (String subjName : keys) {
-                System.out.println("Enter PGA for subject " + subjName);
+                
+                System.out.println("Enter GPA for subject " + subjName);
                 int gpa = new Scanner(System.in).nextInt();
+                /////////////
+                while(gpa>4 || gpa < 0){
+                System.out.println("Please, Enter the GPA again");
+                gpa = new Scanner(System.in).nextInt();
+                }
                 student.gpa.subjectGpa.put(subjName, gpa);
+                /////////////
             }   
           
           studentMap.put(student.name, student);
@@ -38,6 +45,7 @@ public class Calculator {
         for(;;) {
             System.out.println("Enter student name for GPA:?");
             String nameGPA = new Scanner(System.in).nextLine();
+            
             if(nameGPA.equals("0")) {
                 break;
             }
